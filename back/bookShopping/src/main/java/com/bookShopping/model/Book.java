@@ -21,5 +21,6 @@ public class Book {
 	private Double price;
 	private String author;
 	private Integer page;
+	private String username;
 
 }
