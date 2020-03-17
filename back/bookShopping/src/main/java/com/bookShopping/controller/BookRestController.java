@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bookShopping.dao.BookDAO;
 import com.bookShopping.model.Book;
+import com.bookShopping.model.SearchModel;
 
 
 
@@ -28,6 +29,18 @@ public class BookRestController {
 
 
 
+	@GetMapping(path="/findRange/{username}/{begin}")
+	public List<Book> findInRange(@PathVariable(name="begin") Integer begin, @PathVariable(name="username") String username){
+		return bookDao.findRange(username, begin, 10);
+	}
+
+	@GetMapping(path="/findUsername/{begin}/{username}")
+	public List<Book> getByUsername(@PathVariable(name="begin") Integer begin, @PathVariable String username){
+		return bookDao.findByUsername(username, begin, 10 );
+	}
+
+	
+	
 @RequestMapping(path="/book", method=RequestMethod.POST)
 public Book saveBook(@RequestBody Book book) {
 	
@@ -41,18 +54,10 @@ public void deleteBookById(@PathVariable(name="id") Integer id){
 
 	
 }
-//@GetMapping(path="/findRange/{begin}")
-//public List<Product> findInRange(@PathVariable(name="begin") Integer begin){
-//	return productDAO.findRange(begin, 12);
-//}
-@GetMapping(path="/find/{begin}/{username}")
-public List<Book> getByUsername(@PathVariable(name="begin") Integer begin, @PathVariable String username){
-	return bookDao.findByUsername(username, begin, 12 );
+@PostMapping(path="/searchRange")
+public List<Book> searchRange(@RequestBody SearchModel search){
+	return bookDao.searchBook(search.getSearch(), search.getBegin(), search.getLength());
 }
 
-//@PostMapping(path="/searchRange")
-//public List<Book> searchInRange(@RequestBody SearchModel search){
-//	return productDAO.findSearchInRange(search.getSearch(), search.getBegin(), search.getLength());
-//}
 
 }
