@@ -12,6 +12,7 @@ import { BasicInterceptorService } from './service/BasicInterceptorService';
 import { SignupComponent } from './component/signup/signup.component';
 import { MatDialogModule } from '@angular/material';
 
+
 @NgModule({
   declarations: [
     AppComponent,
