@@ -41,7 +41,7 @@ public class BookRestController {
 
 	
 	
-@RequestMapping(path="/book", method=RequestMethod.POST)
+@PostMapping(path="/book")
 public Book saveBook(@RequestBody Book book) {
 	
 	return bookDao.save(book);
