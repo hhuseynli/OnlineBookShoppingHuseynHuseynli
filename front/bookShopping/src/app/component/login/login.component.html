@@ -1,0 +1,29 @@
+<div class="login">
+    <table>
+        <tbody>
+            <tr>
+
+                <td>İstifadəçi adı : </td>
+                <td><input type="text" placeholder="Enter you username." [(ngModel)]="user.username"></td>
+            </tr>
+            <tr>
+
+                <td>Parol : </td>
+                <td><input type="password" placeholder="Enter you password." [(ngModel)]="user.password"></td>
+            </tr>
+            <tr>
+                <td>
+                <button class="btn btn-primary" (click)="onSignUp()">Qeydiyyat et</button>
+            </td>
+            <td *ngIf="!isUserLoggedIn()">
+                <button (click)="onLogin()" class="btn btn-success"> Daxil ol</button>
+            </td>
+            <td *ngIf="isUserLoggedIn()">
+                <button routerLink="/logout" class="btn btn-danger">Çıxış</button>
+            </td>
+            
+            </tr>
+        </tbody>
+
+    </table>
+</div>
