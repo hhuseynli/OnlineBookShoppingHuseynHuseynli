@@ -9,21 +9,26 @@ import { MenuComponent } from './component/menu/menu.component';
 import { LogoutComponent } from './component/logout/logout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BasicInterceptorService } from './service/BasicInterceptorService';
+import { SignupComponent } from './component/signup/signup.component';
+import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     MenuComponent,
-    LogoutComponent
+    LogoutComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
+  entryComponents:[SignupComponent],
   providers: [{provide:HTTP_INTERCEPTORS ,useClass:BasicInterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })

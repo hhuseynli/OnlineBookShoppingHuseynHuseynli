@@ -1,0 +1,61 @@
+<form #userForm="ngForm" (ngSubmit)="!userForm.invalid && onNewAccount()">
+<table class="table">
+    <tbody>
+        <tr>
+            <td>
+                İstifadəçi adı:
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="userP.username" minlength="6" name="username" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Şifrə:
+            </td>
+            <td>
+                <input type="password" [(ngModel)]="userP.password" minlength="8" name="password"   required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Ad:
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="userP.name"  minlength="2" #name="ngModel" [pattern]="letterPattern" name="userName" required>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Soyad:
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="userP.surname" minlength="2" #surname="ngModel" [pattern]="letterPattern" name="surname" required>
+            </td>
+        </tr>
+
+        
+        <tr>
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="userP.email" #email="ngModel" name="email" [pattern]="emailPattern" required>
+            </td>
+        </tr>
+        <tr>
+             <div *ngIf="name.errors?.pattern || surname.errors?.pattern"> 
+                Ad vəya soyad doğru deyil. Sadəcə İngilis hərfləri istifadə etmək olar.
+             </div> 
+             <div *ngIf="email.errors?.pattern"> 
+                Email doğru deyil.
+             </div> 
+             
+            
+        </tr>
+        <tr><button class="btn btn-success" type="submit" > Hesab Yarat</button></tr>
+    </tbody>
+</table>
+
+
+</form>

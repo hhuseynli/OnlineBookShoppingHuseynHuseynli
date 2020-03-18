@@ -20,6 +20,13 @@ export class UserService {
   }
 
   public createUser(user:User){
-    return this.http.post<User>(`${API_URL}/users`,user);
+    return this.http.post<User>(`${API_URL}/users`,user).subscribe(
+      resp=>{
+        alert("Hesab uğurla yaradıldı.");
+      },
+      error=>{
+        alert("Bu istifadəçi adı artıq qeyd olunub.");
+      }
+    );
   }
 }
