@@ -4,6 +4,8 @@ import { BookService } from 'src/app/service/book.service';
 import { MatDialog } from '@angular/material';
 import { AddBookComponent } from '../add-book/add-book.component';
 import { API_URL } from 'src/app/constants';
+import { FileService } from 'src/app/service/file.service';
+import { ImageViewComponent } from '../image-view/image-view.component';
 
 @Component({
   selector: 'app-book-list',
@@ -18,7 +20,7 @@ export class BookListComponent implements OnInit {
     begin:number=0;
     username:string;
 
-  constructor(private bookService:BookService, private dialog:MatDialog) { }
+  constructor(private bookService:BookService, private dialog:MatDialog, private file:FileService) { }
 
   ngOnInit() {
     this.username=sessionStorage.getItem("username");
@@ -70,6 +72,10 @@ export class BookListComponent implements OnInit {
           this.books=resp;
         }
       );
+    }
+    onViewImage(image){
+      this.file.image=image;
+      this.dialog.open(ImageViewComponent);
     }
 
 

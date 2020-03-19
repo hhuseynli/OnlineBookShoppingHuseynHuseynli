@@ -2,7 +2,7 @@
 <div class="row" id="row">
     <div class="col-sm-3" *ngFor="let b of books" >
 <div class="card"  id="card">
-    <img class="card-img-top " [src]="download+b.image" alt="image">
+    <img class="card-img-top " [src]="download+b.image" alt="image" (click)="onViewImage(b.image)">
     <div class="card-body" >
         
       <h5 class="card-title">{{b.book}}</h5>
