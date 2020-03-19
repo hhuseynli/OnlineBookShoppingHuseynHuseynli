@@ -19,5 +19,8 @@ export class BookService {
   public getBooksByUsername(begin:number, username:string){
     return this.http.get<Book[]>(`${API_URL}/books/findUsername/${begin}/${username}`);
   }
+  public getBooksPartially(begin:number, username:string){
+    return this.http.get<Book[]>(`${API_URL}/books/findRange/${username}/${begin}`);
+  }
 
 }
