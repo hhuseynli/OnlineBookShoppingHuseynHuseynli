@@ -1,0 +1,37 @@
+<form #bookForm="ngForm" (ngSubmit)="!bookForm.invalid && onSaveBook()">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Ad:</td>
+                <td><input type="text" [(ngModel)]="book.book" name="bookName" required></td>
+            </tr>
+
+            <tr>
+                <td>Təsvir:</td>
+                <td><textarea [(ngModel)]="book.description" name="desc" required></textarea></td>
+            </tr>
+            <tr>
+                <td>Şəkil:</td>
+                <td><input type="file" accept="image/*" name="img" (change)="fileSelected($event)"  required ></td>
+            </tr>
+
+            <tr>
+                <td>Qiymət:</td>
+                <td><input type="number" [(ngModel)]="book.price" name="price" required>$</td>
+            </tr>
+            <tr>
+                <td>Səhifə sayı:</td>
+                <td><input type="number" [(ngModel)]="book.page" name="page" required></td>
+            </tr>
+            <tr>
+                <td>Müəllif:</td>
+                <td><input type="text" [(ngModel)]="book.author" name="author" required></td>
+            </tr>
+            <tr>
+            
+                <td><button class="btn btn-success" *ngIf="bookForm.valid" mat-dialog-close>Yadda Saxla</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</form>
