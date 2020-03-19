@@ -19,6 +19,7 @@ import { AddBookComponent } from './component/add-book/add-book.component';
 import { BookListComponent } from './component/book-list/book-list.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ImageViewComponent } from './component/image-view/image-view.component';
 
 
 
@@ -34,7 +35,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     BasketComponent,
     OrderConfirmComponent,
     AddBookComponent,
-    BookListComponent
+    BookListComponent,
+    ImageViewComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     BrowserAnimationsModule,
     MatDialogModule,
     ConfirmationPopoverModule.forRoot({
-      confirmButtonType:'success',cancelButtonType:'danger',confirmText:'Təsdiq',cancelText:'Ləğv et'
+      confirmButtonType:'success',cancelButtonType:'danger',confirmText:'Təsdiq',cancelText:'Ləğv'
     }),
     InfiniteScrollModule
     
