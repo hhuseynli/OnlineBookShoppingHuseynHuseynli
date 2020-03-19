@@ -7,7 +7,7 @@ import { API_URL } from '../constants';
   providedIn: 'root'
 })
 export class FileService {
-
+  image:string;
   constructor(private http:HttpClient) { }
 
   uploadImage(file:FormData){
