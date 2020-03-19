@@ -11,13 +11,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BasicInterceptorService } from './service/BasicInterceptorService';
 import { SignupComponent } from './component/signup/signup.component';
 import { MatDialogModule } from '@angular/material';
-// import { CustomerPageComponent } from './component/customer-page/customer-page.component';
-// import { OrderListComponent } from './component/order-list/order-list.component';
-// import { BasketComponent } from './component/basket/basket.component';
-// import { OrderConfirmComponent } from './component/order-confirm/order-confirm.component';
-// import { AddBookComponent } from './component/add-book/add-book.component';
-// import { BookListComponent } from './component/book-list/book-list.component';
+import { CustomerPageComponent } from './component/customer-page/customer-page.component';
+import { OrderListComponent } from './component/order-list/order-list.component';
+import { BasketComponent } from './component/basket/basket.component';
+import { OrderConfirmComponent } from './component/order-confirm/order-confirm.component';
+import { AddBookComponent } from './component/add-book/add-book.component';
+import { BookListComponent } from './component/book-list/book-list.component';
 import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 
 
@@ -27,7 +28,13 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     LoginComponent,
     MenuComponent,
     LogoutComponent,
-    SignupComponent
+    SignupComponent,
+    CustomerPageComponent,
+    OrderListComponent,
+    BasketComponent,
+    OrderConfirmComponent,
+    AddBookComponent,
+    BookListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,9 +45,11 @@ import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
     MatDialogModule,
     ConfirmationPopoverModule.forRoot({
       confirmButtonType:'success',cancelButtonType:'danger',confirmText:'Təsdiq',cancelText:'Ləğv et'
-    })
+    }),
+    InfiniteScrollModule
+    
   ],
-  entryComponents:[SignupComponent],
+  entryComponents:[SignupComponent, AddBookComponent],
   providers: [{provide:HTTP_INTERCEPTORS ,useClass:BasicInterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })

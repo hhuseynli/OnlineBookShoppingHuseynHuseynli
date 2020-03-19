@@ -1,0 +1,26 @@
+#card{
+    margin: 10px 0 ;
+    border-radius: 3px 3px 0 0;
+    text-align: center;
+    height:525px;
+}
+
+
+button{
+    margin: 10px;
+    display: inline-block;
+
+}
+#row{
+    padding: 0 10px;
+}
+#card:hover{
+    box-shadow: 5px 5px 15px gray;
+}
+img{
+    min-height: 100px;
+    max-height:250px;
+    background-color:#fafaf8;
+
+}
+
