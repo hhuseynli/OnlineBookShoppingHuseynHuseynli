@@ -1,0 +1,34 @@
+<div *ngIf="total==0">
+    <h3>Səbət boşdur!</h3>
+</div>
+<div id="table">
+<table class="table">
+    <tbody *ngFor="let b of books;let counter=index;">
+        <tr>
+            <td><img [src]="download+b.book.image" (click)="viewImage(b.book.image)"></td>
+            <td>
+                {{b.book.name}}
+            </td>
+            <td>
+                {{b.book.price | currency:"USD"}}
+            </td>
+            <td>
+                <input type="number" [(ngModel)]="b.quantity" (input)="onQuantityChanged(b,counter)" min="0" max="10">
+            </td>
+            <td>
+                {{(b.book.price*b.quantity) | currency:"USD"}}
+            </td>
+
+            <td>
+                <button class="btn btn-danger"  (click)="onDelete(counter)">X</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<button mat-dialog-close *ngIf="total!=0" (click)="onConfirm()" class="btn btn-success ">Confirm Order </button>
+<span *ngIf="total!=0" >
+    Cəm qiymət: {{ total | currency:'USD'}}
+</span>
+</div>

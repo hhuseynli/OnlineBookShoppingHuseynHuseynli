@@ -1,0 +1,16 @@
+#table {
+    border-collapse: collapse;
+    max-height: 400px;
+    min-height: 300px;
+    width:625px;
+    overflow: auto;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  img{
+     height:100px;
+  }

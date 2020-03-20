@@ -4,12 +4,12 @@
     <img class="card-img-top " [src]="download+b.image" alt="image" (click)="viewImage(b.image)">
     <div class="card-body" id="body">
         
-      <h5 class="card-title">{{b.name}}</h5>
+      <h5 class="card-title">{{b.book}}</h5>
       <p class="card-text">{{b.description}}</p>
       <p class="card-text">Qiymət: {{b.price | currency:'USD'}} </p>
       <p class="card-text">Müəllif: {{b.author}}</p>
     </div>
-    <button class="btn btn-primary" (click)="onCart(b)" >Add To Cart</button>
+    <button class="btn btn-primary" (click)="onBasket(b)" >Səbətə at</button>
   </div>
 </div>
 </div>
@@ -24,4 +24,5 @@ infiniteScroll
 [infiniteScrollThrottle]="1000"
 (scrolled)="onScroll()"
 >
+<button class="btn btn-warning" id="basket" (click)="onOpenBasket()">Səbət <span class="badge badge-light" style="background-color: red;">{{count}}</span></button>
 
