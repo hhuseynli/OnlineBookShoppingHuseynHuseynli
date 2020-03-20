@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { OrderModel } from 'src/app/model/orderModel';
 import { BasketService } from 'src/app/service/basket.service';
 import { OrderService } from 'src/app/service/order.service';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-order-confirm',
@@ -26,8 +27,8 @@ export class OrderConfirmComponent implements OnInit {
   }
 
   onConfirmOrder(){
-    this.order.username=this.order.orderBooks[0].book.username;
     this.order.orderBooks=this.basketService.orderBooks;
+    this.order.username=this.order.orderBooks[0].book.username;
     this.basketService.changeTotalPrice();
     this.order.total=this.total;
     this.service.createOrder(this.order).subscribe(
