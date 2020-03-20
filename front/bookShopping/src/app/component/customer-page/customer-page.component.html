@@ -24,5 +24,6 @@ infiniteScroll
 [infiniteScrollThrottle]="1000"
 (scrolled)="onScroll()"
 >
+<input type="text" id="search" (input)="onSearch()" placeholder="Axtar..." [(ngModel)]="search">
 <button class="btn btn-warning" id="basket" (click)="onOpenBasket()">Səbət <span class="badge badge-light" style="background-color: red;">{{count}}</span></button>
 

@@ -8,6 +8,7 @@ import { ImageViewComponent } from '../image-view/image-view.component';
 import { BasketService } from 'src/app/service/basket.service';
 import { OrderBook } from 'src/app/model/orderBook';
 import { BasketComponent } from '../basket/basket.component';
+import { SearchModel } from 'src/app/model/searchModel';
 
 @Component({
   selector: 'app-customer-page',
@@ -21,6 +22,7 @@ username:string=" ";
 begin:number=0;
 books:Book[]=[];
 count:number=0;
+search:string="";
   constructor(private bookService:BookService, private file:FileService, private dialog:MatDialog, private basket:BasketService) { }
 
   ngOnInit() {
@@ -29,9 +31,7 @@ count:number=0;
         this.count=resp;
       }
     );
-
-
-
+    this.basket.changeProductCount();
 
     if(sessionStorage.getItem("username")){
       this.username=sessionStorage.getItem("username");
@@ -42,20 +42,44 @@ count:number=0;
 
   loadBooks(){
     this.begin=0;
-    this.bookService.getBooksPartially(this.begin,this.username).subscribe(
-      resp=>{
-        this.books=resp;
-      }
-    );
+    if(this.search!=""){
+      let search:SearchModel=new SearchModel();
+      search.begin=this.begin;
+      search.length=10;
+      search.search=this.search;
+      this.bookService.searchPartially(search).subscribe(
+        resp=>{
+          this.books=resp;
+        }
+      );
+    }else{
+      this.bookService.getBooksPartially(this.begin,this.username).subscribe(
+        resp=>{
+          this.books=resp;
+        }
+      );
+    }
 
   }
   onScroll(){
     this.begin+=10;
-    this.bookService.getBooksPartially(this.begin,this.username).subscribe(
-      resp=>{
-        this.books.push(...resp);
-      }
-    );
+    if(this.search!=""){
+      let search:SearchModel=new SearchModel();
+      search.begin=this.begin;
+      search.length=10;
+      search.search=this.search;
+      this.bookService.searchPartially(search).subscribe(
+        resp=>{
+          this.books.push(...resp);
+        }
+      );
+    }else{
+      this.bookService.getBooksPartially(this.begin,this.username).subscribe(
+        resp=>{
+          this.books.push(...resp);
+        }
+      );
+    }
 
   }
 
@@ -85,6 +109,9 @@ count:number=0;
   }
   onOpenBasket(){
     this.dialog.open(BasketComponent);
+  }
+  onSearch(){
+    this.loadBooks();
   }
 
 
