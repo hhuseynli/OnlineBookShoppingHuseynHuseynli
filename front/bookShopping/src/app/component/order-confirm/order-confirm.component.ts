@@ -26,7 +26,7 @@ export class OrderConfirmComponent implements OnInit {
   }
 
   onConfirmOrder(){
-    this.order.username=sessionStorage.getItem("username");
+    this.order.username=this.order.orderBooks[0].book.username;
     this.order.orderBooks=this.basketService.orderBooks;
     this.basketService.changeTotalPrice();
     this.order.total=this.total;
