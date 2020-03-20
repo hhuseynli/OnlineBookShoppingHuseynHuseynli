@@ -51,7 +51,7 @@ import { ImageViewComponent } from './component/image-view/image-view.component'
     InfiniteScrollModule
     
   ],
-  entryComponents:[SignupComponent, AddBookComponent, ImageViewComponent],
+  entryComponents:[SignupComponent, AddBookComponent, ImageViewComponent, BasketComponent, OrderConfirmComponent],
   providers: [{provide:HTTP_INTERCEPTORS ,useClass:BasicInterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,48 @@
+<form  (ngSubmit)="!confirmForm.invalid && onConfirmOrder()" #confirmForm="ngForm">
+    <table class="table">
+        <tr>
+            <td>Ad, Soyad :</td>
+            <td><input type="text" [(ngModel)]="order.customer.name" name="customerName" #name="ngModel" [pattern]="letterPattern" required></td>
+        </tr>
+        <tr>
+            <td>Qeyd:</td>
+            <td><textarea type="text" [(ngModel)]="order.note" name="orderNote" ></textarea></td>
+        </tr>
+        <tr>
+            <td>Nömrə:</td>
+            <td><input type="text" [(ngModel)]="order.customer.phone" name="customerPhone"  placeholder="+994505555555" [pattern]="phonePattern" #num="ngModel" required maxlength=15 ></td>
+        </tr>
+        <tr>
+            <td>Ünvan:</td>
+            <td><input type="text" [(ngModel)]="order.customer.address" name="customerAddress" required></td>
+        </tr>
+        <tr>
+            <td>Şəhər:</td>
+            <td><input type="text" [(ngModel)]="order.customer.city" name="customerCity"  #city="ngModel" [pattern]="letterPattern" required></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input type="email" [(ngModel)]="order.customer.email" [pattern]="emailPattern" name="customerEmail"
+                    #email="ngModel" placeholder="huseynhuseynli1234@gmail.com" required></td>
+        </tr>
+       
+        
+        <tr>
+            
+            <div *ngIf="num.errors?.pattern">
+                Nömrə yanlışdır.
+            </div>
+            <div *ngIf="city.errors?.pattern || name.errors?.pattern">
+               Şəhər vəya Ad yanlışdır.Sadəcə İngilis hərfləri istifadə edə bilərsinizş
+            </div>
+            <div *ngIf="email.errors?.pattern">
+                Email yanlışdır.
+            </div>
+        
+        
+
+        <td *ngIf="confirmForm.valid"><button class="btn btn-success" type="submit" mat-dialog-close >Confirm</button></td>
+        </tr>
+    </table>
+
+</form>
