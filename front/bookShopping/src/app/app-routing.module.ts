@@ -9,7 +9,7 @@ import { CustomerPageComponent } from './component/customer-page/customer-page.c
 
 
 const routes: Routes = [
-  {path:"",component:LoginComponent},
+  {path:"",component:CustomerPageComponent},
   {path:"books", component:CustomerPageComponent},
   {path:"mybooks", component:BookListComponent, canActivate:[RouteGuardService]},
   {path:"login", component:LoginComponent},

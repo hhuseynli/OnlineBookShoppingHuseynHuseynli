@@ -34,8 +34,7 @@ export class LoginComponent implements OnInit {
       success => {
         sessionStorage.setItem("username",this.user.username);
         sessionStorage.setItem("authorization", HeaderString);
-        //add navigation to customer page
-
+        this.router.navigate(["books"]);
       },error=>{
         alert('Məlumatlar yanlışdır.');
       }
