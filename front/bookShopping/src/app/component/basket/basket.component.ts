@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 import { ImageViewComponent } from '../image-view/image-view.component';
 import { API_URL } from 'src/app/constants';
 import { OrderConfirmComponent } from '../order-confirm/order-confirm.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-basket',
@@ -17,7 +18,7 @@ export class BasketComponent implements OnInit {
   total:number;
   download:string=`${API_URL}/filedownload/files/`;
   
-  constructor(private image:FileService, private basket:BasketService, private dialog:MatDialog) { }
+  constructor(private image:FileService, private basket:BasketService, private dialog:MatDialog, private router:Router) { }
 
   ngOnInit() {
     this.books=this.basket.orderBooks;
@@ -49,7 +50,12 @@ export class BasketComponent implements OnInit {
 
   }
   onConfirm(){
-    this.dialog.open(OrderConfirmComponent);
+    if(sessionStorage.getItem("username")){
+      this.dialog.open(OrderConfirmComponent);
+    }else{
+      alert("Sifariş vermək üçün hesaba daxil olun.");
+      this.router.navigate(["login"]);
+    }
   }
 
 
