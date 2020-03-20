@@ -1,5 +1,14 @@
+<div class="container-fluid" style="background: url(../../../assets/background.png);">
+<div class="col-sm-12" id="image">
+  <img src="assets/library.jpg" style="border-radius: 10px; width: fit-content;">
+</div>
+
+
+
+
+
 <div class="row" id="row">
-    <div class="col-sm-3" *ngFor="let b of books" >
+      <div class="col-sm-4" *ngFor="let b of books" >
 <div class="card"  id="card">
     <img class="card-img-top " [src]="download+b.image" alt="image" (click)="viewImage(b.image)">
     <div class="card-body" id="body">
@@ -11,6 +20,7 @@
     </div>
     <button class="btn btn-primary" (click)="onBasket(b)" >Səbətə at</button>
   </div>
+</div>
 </div>
 </div>
 

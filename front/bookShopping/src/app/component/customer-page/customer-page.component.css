@@ -1,8 +1,10 @@
 #card{
-    margin: 10px 0 ;
+    margin: 10px 5px ;
     border-radius: 3px 3px 0 0;
     text-align: center;
     height:525px;
+
+    
 }
 
 
@@ -13,9 +15,11 @@ button{
 }
 #row{
     padding: 0 10px;
+    margin: 0 20% ;
 }
 #card:hover{
     box-shadow: 5px 5px 15px gray;
+    transition: box-shadow 1s ;
 }
 img{
     min-height: 100px;
@@ -40,4 +44,8 @@ img{
     height:30px;
 
 }
-
+#image{
+    padding: 5px;
+     background-repeat: no-repeat;
+     text-align: center;
+}
