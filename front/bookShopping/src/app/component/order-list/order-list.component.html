@@ -1,0 +1,40 @@
+<table class="table table-bordered" >
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Müştəri</th>
+            <th>Kitablar</th>
+            <th>Qeyd</th>
+            <th>Cəm</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of orders">
+            <td>{{o.id}}</td>
+            <td><ul>
+                <li>Ad:{{o.customer.name}}</li>
+                <li>Ünvan:{{o.customer.address}}</li>
+                <li>Nömrə:{{o.customer.phone}}</li>
+                <li>Email:{{o.customer.email}}</li>
+                <li>Şəhər:{{o.customer.city}}</li>
+            </ul></td>
+            <td><ol>
+                <li *ngFor="let b of o.orderBooks">
+                     {{b.book.book}} :{{b.book.price | currency:"USD"}} * {{b.quantity}}
+                </li>
+            </ol></td>
+            <td>{{o.note}}</td>
+            <td>
+                {{o.total | currency:"USD"}}
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="1000"
+  (scrolled)="onScroll()"
+  >
+  </div>

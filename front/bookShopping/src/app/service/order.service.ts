@@ -13,4 +13,7 @@ export class OrderService {
   createOrder(order:OrderModel){
     return this.http.post<OrderModel>(`${API_URL}/orders/order`, order);
   }
+  getOrders(username:string,begin:number){
+    return this.http.get<OrderModel[]>(`${API_URL}/orders/order/${username}/${begin}`)
+  }
 }
