@@ -25,12 +25,16 @@ export class BookListComponent implements OnInit {
   ngOnInit() {
     this.username=sessionStorage.getItem("username");
     this.loadBooks();
+    this.bookService.bookSaved.subscribe(
+      resp=>{
+        this.loadBooks();
+      }
+    );
 
   }
 
     onSaveBook(book:Book){
       this.dialog.open(AddBookComponent);
-      this.loadBooks();
     }
 
     onDeleteBook(status:boolean, book:Book){

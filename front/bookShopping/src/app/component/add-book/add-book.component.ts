@@ -45,6 +45,8 @@ export class AddBookComponent implements OnInit {
     this.bookS.createBook(this.book).subscribe(
       resp=>{
         alert("Kitab uğurla yadda saxlandı.");
+        this.bookS.bookSaved.emit(true);
+        this.dialog.closeAll();
       },error=>{
         alert("Kitabı yadda saxlamaq mümkün olmadı.")
       }
