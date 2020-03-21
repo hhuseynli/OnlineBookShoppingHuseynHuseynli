@@ -7,6 +7,7 @@ import { API_URL } from '../constants';
   providedIn: 'root'
 })
 export class UserService {
+  users:User[]=[];
 
   constructor(private http:HttpClient) {}
 
@@ -20,12 +21,13 @@ export class UserService {
   }
 
   public createUser(user:User){
-    return this.http.post<User>(`${API_URL}/users`,user).subscribe(
+    return this.http.post<User>(`${API_URL}/users`,user);
+  }
+
+  public getUsers(){
+    this.http.get<User[]>(`${API_URL}/users`).subscribe(
       resp=>{
-        alert("Hesab uğurla yaradıldı.");
-      },
-      error=>{
-        alert("Bu istifadəçi adı artıq qeyd olunub.");
+        this.users=resp;
       }
     );
   }

@@ -17,7 +17,26 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
   }
   onNewAccount(){
-    return this.user.createUser(this.userP);
+   let userAlreadyExists:boolean=false;
+   this.user.getUsers();
+   for (let index = 0; index < this.user.users.length; index++) {
+     const element = this.user.users[index];
+     if(element.username==this.userP.username){
+       userAlreadyExists=true;
+       break;
+     }
+     
+   }
+   if(userAlreadyExists){
+     alert("Bu istifadəçi adı artıq var. Başqa istifadəçi adı seçin")
+   }else{
+    this.user.createUser(this.userP).subscribe(
+      resp=>{
+        alert("Hesab uğurla yaradıldı.");
+      }
+    );
+   }
+   
   }
 
 }
