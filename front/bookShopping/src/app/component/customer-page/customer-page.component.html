@@ -13,10 +13,10 @@
     <img class="card-img-top " [src]="download+b.image" alt="image" (click)="viewImage(b.image)">
     <div class="card-body" id="body">
         
-      <h5 class="card-title">{{b.book}}</h5>
-      <p class="card-text">{{b.description}}</p>
+      <h5 class="card-title" [title]="b.book">{{editText(b.book,12)}}</h5>
+      <p class="card-text" [title]="b.description">{{editText(b.description,15)}}</p>
       <p class="card-text">Qiymət: {{b.price | currency:'USD'}} </p>
-      <p class="card-text">Müəllif: {{b.author}}</p>
+      <p class="card-text" [title]="b.author">Müəllif: {{editText(b.author,12)}}</p>
     </div>
     <button class="btn btn-primary" (click)="onBasket(b)" >Səbətə at</button>
   </div>

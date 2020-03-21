@@ -117,6 +117,13 @@ search:string="";
   onSearch(){
     this.loadBooks();
   }
+  editText(text:string,maxlength:number){
+    if(text.length>maxlength){
+      return text.substr(0,maxlength)+"..."
+    }else{
+      return text;
+    }
+  }
 
 
 }
