@@ -33,7 +33,7 @@
                 Nömrə yanlışdır.
             </div>
             <div *ngIf="city.errors?.pattern || name.errors?.pattern">
-               Şəhər vəya Ad yanlışdır.Sadəcə İngilis hərfləri istifadə edə bilərsinizş
+               Şəhər vəya Ad yanlışdır. İngilis hərfləri istifadə edə bilərsiniz.
             </div>
             <div *ngIf="email.errors?.pattern">
                 Email yanlışdır.
@@ -41,7 +41,7 @@
         
         
 
-        <td *ngIf="confirmForm.valid"><button class="btn btn-success" type="submit" mat-dialog-close >Confirm</button></td>
+        <td *ngIf="confirmForm.valid"><button class="btn btn-success" type="submit" mat-dialog-close>Təsdiq et</button></td>
         </tr>
     </table>
 

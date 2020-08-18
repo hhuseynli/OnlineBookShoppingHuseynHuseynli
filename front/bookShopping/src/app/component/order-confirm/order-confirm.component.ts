@@ -35,9 +35,10 @@ export class OrderConfirmComponent implements OnInit {
       success=>{
         this.basketService.orderBooks=[];
         this.basketService.changeProductCount();
+        alert("Sifarişiniz qəbul olundu.")
       }
       ,error=>{
-        alert("Şifariş etmək mümkün olmadı. ");
+        alert("Sifariş etmək mümkün olmadı. ");
       }
     );
 
