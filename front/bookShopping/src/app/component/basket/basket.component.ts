@@ -50,12 +50,7 @@ export class BasketComponent implements OnInit {
 
   }
   onConfirm(){
-    if(sessionStorage.getItem("username")){
       this.dialog.open(OrderConfirmComponent);
-    }else{
-      alert("Sifariş vermək üçün hesaba daxil olun.");
-      this.router.navigate(["login"]);
-    }
   }
 
 
