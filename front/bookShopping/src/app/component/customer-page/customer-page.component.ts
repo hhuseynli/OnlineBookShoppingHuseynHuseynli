@@ -92,13 +92,17 @@ search:string="";
     let isAlreadyAdded:boolean=false;
     for (let index = 0; index < this.basket.orderBooks.length; index++) {
       const element = this.basket.orderBooks[index];
-      if(element.book.username!=book.username){
-        isAlreadyAdded=false;
-        break;
-      }else if(element.book.id==book.id){
-        isAlreadyAdded=true;
-        element.quantity++;
-        break;
+     
+      if(element.book.username==book.username){
+        if(element.book.id==book.id){
+          isAlreadyAdded=true;
+          element.quantity++;
+          break;
+        }else{
+          isAlreadyAdded=false;
+        break; 
+        }
+        
       }else{
         isAlreadyAdded = true;
         alert("Eyni zamanda sadəcə bir satıcının kitablarını almaq olar.")
