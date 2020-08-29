@@ -105,7 +105,6 @@ search:string="";
         
       }else{
         isAlreadyAdded = true;
-        alert("Eyni zamanda sadəcə bir satıcının kitablarını almaq olar.")
       }
     }
     if(!isAlreadyAdded){
@@ -113,6 +112,8 @@ search:string="";
       orderBook.book=book;
       orderBook.quantity=1;
       this.basket.orderBooks.push(orderBook);
+    }else{
+      alert("Eyni zamanda sadəcə bir satıcının kitablarını almaq olar.");
     }
     this.basket.changeProductCount();
     this.basket.changeTotalPrice();
