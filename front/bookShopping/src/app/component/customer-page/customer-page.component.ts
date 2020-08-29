@@ -94,12 +94,14 @@ search:string="";
       const element = this.basket.orderBooks[index];
       if(element.book.username!=book.username){
         isAlreadyAdded=false;
-        alert("Eyni zamanda sadəcə bir satıcının kitablarını almaq olar.")
         break;
       }else if(element.book.id==book.id){
         isAlreadyAdded=true;
         element.quantity++;
         break;
+      }else{
+        isAlreadyAdded = true;
+        alert("Eyni zamanda sadəcə bir satıcının kitablarını almaq olar.")
       }
     }
     if(!isAlreadyAdded){
